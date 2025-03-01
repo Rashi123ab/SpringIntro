@@ -25,6 +25,11 @@ public class HelloController {
     public String sayHelloWithPost(@RequestBody User user) {
         return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
     }
+
+    @PutMapping("/put/{firstName}")
+    public String sayHelloWithPut(@PathVariable String firstName, @RequestParam String lastName) {
+        return "Hello " + firstName + " " + lastName + " from BridgeLabz";
+    }
 }
 
 class User {
@@ -47,6 +52,7 @@ class User {
         this.lastName = lastName;
     }
 }
-//url--for post request in postman
-//http://localhost:8080/hello/post
+
+//url--for put request in postman
+//http://localhost:8080/hello/put/Rashi?lastName=Agrawal
 //o/p---- Hello Rashi Agrawal from BridgeLabz.
